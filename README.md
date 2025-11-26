@@ -9,9 +9,9 @@ Aquí encontrarás los enlaces a los microservicios relacionados y recursos adic
 
 | Servicio | Descripción | Link |
 |---------|-------------|------|
-| 🛒 **ecommerce-product-service** | Gestión de productos del ecommerce | [Ir al repositorio](https://github.com/tu-usuario/ecommerce-product-service) |
-| 📦 **ecommerce-inventory-service** | Control de inventario y stock | [Ir al repositorio](https://github.com/tu-usuario/ecommerce-inventory-service) |
-| 📑 **ecommerce-order-service** | Gestión de órdenes y flujo de compra | [Ir al repositorio](https://github.com/tu-usuario/ecommerce-order-service) |
+| 🛒 **ecommerce-product-service** | Gestión de productos del ecommerce | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-product-service) |
+| 📦 **ecommerce-inventory-service** | Control de inventario y stock | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-inventory-service) |
+| 📑 **ecommerce-order-service** | Gestión de órdenes y flujo de compra | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-order-service) |
 
 ---
 
