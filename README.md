@@ -20,6 +20,76 @@
 | 📑 **ecommerce-order-service** | Gestión de órdenes y flujo de compra | 
 
 ---
+## 🛢️ Modelo de datos del Proyecto
+```mermaid
+erDiagram
+
+    %% ================================
+    %%     DATABASE: ecommerce
+    %% ================================
+
+    PRODUCTS {
+        UUID id PK
+        string name
+        string description
+        integer stock
+        decimal price
+        UUID category_id FK
+        datetime created_at
+        datetime updated_at
+    }
+
+    CATEGORIES {
+        UUID id PK
+        string name
+        string description
+    }
+
+    CATEGORY ||--o{ PRODUCT : "tiene muchos"
+
+
+    %% ================================
+    %%  DATABASE: ecommerce_inventory
+    %% ================================
+
+    INVENTORY_ITEMS {
+        UUID id PK
+        UUID product_id FK
+        string product_name
+        integer reserved_stock
+        integer available_stock
+        datetime created_at
+        datetime updated_at
+    }
+
+    PRODUCT ||--o{ INVENTORY : "relación lógica (cross-DB)"
+
+
+    %% ================================
+    %%  DATABASE: ecommerce_orders
+    %% ================================
+
+    CUSTOMER_ORDERS {
+        UUID id PK
+        UUID product_id FK
+        int quantity
+        string status
+        string customer_name
+        string customer_email
+        decimal total_aamount
+        string cancellation_reason
+        datetime created_at
+    }
+
+    PRODUCT ||--o{ ORDER : "referencia lógica (cross-DB)"
+```
+- 🗃 Explicación del Modelo
+- 📌 Bases de datos involucradas
+     - ecommerce → catálogo (productos y categorías)
+     - ecommerce_inventory → stock disponible
+     - ecommerce_orders → órdenes creadas por los clientes
+---
+---
 ## 🔄 Diagrama del Proyecto
 
 ```mermaid
@@ -29,8 +99,7 @@ flowchart LR
     C[order-service] -->|Kafka topics| D
     D --> B
     D --> C
- ``` 
----
+ ```
 ## 🛠 Herramientas Previamente Requeridas
 
 Inicialmente asegurarse de contar con las siguientes herramientas:
@@ -123,6 +192,38 @@ DATABASE ecommerce_inventory;
 ![img17.png](images/img17.png)
 ![img18.png](images/img18.png)
 ![img19.png](images/img19.png)
+
+---
+### 🗄 Tabla de Endpoints
+
+- Product Service
+```
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | /api/categories | Crear Categoria |
+| GET | /api/categories | Listar Categoria |
+| POST | /api/products | Crear Porducto |
+| GET | /api/products | Listar Producto |
+| GET | /api/products/{id} | Lista Producto por Id |
+```
+
+- Order Service
+```
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | /api/orders | Crear orden |
+| GET | /api/orders | Listar Orden |
+| GET | /api/orders/{id} | Lista Orden por Id |
+```
+ - Inventory Service
+```
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | /api/inventory| Lista stock del Producto|
+| POST | /api/inventory | Crear stock de un Producto|
+| GET | /api/inventory/{id} | Lista Inventario por Id |
+| GET | /api/inventory/product/{id} | Lista Inventario por Id del Producto |
+```
 ---
 ## 🧱 Cómo Probar Todo - Paso a paso 
 👀 **Para el Proyecto se utilizó IntelliJ IDEA (Ultimate), por lo tanto los pasos descritos estan en base a este IDE**
@@ -219,37 +320,6 @@ Puedes encontrar la colección de Postman para probar los endpoints del sistema 
 
 👉 **[Descargar colección de Postman](./postman/proyecto-final_spring-boot-kafka.postman_collection.json)**
 
----
-### Tabla de Endpoints
-
-- Product Service
-```
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| POST | /api/categories | Crear Categoria |
-| GET | /api/categories | Listar Categoria |
-| POST | /api/products | Crear Porducto |
-| GET | /api/products | Listar Producto |
-| GET | /api/products/{id} | Lista Producto por Id |
-```
-
-- Order Service
-```
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| POST | /api/orders | Crear orden |
-| GET | /api/orders | Listar Orden |
-| GET | /api/orders/{id} | Lista Orden por Id |
-```
- - Inventory Service
-```
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| GET | /api/inventory| Lista stock del Producto|
-| POST | /api/inventory | Crear stock de un Producto|
-| GET | /api/inventory/{id} | Lista Inventario por Id |
-| GET | /api/inventory/product/{id} | Lista Inventario por Id del Producto |
-```
 ---
 
 # 🔁 12. Flujo Kafka Completo (end‑to‑end)
