@@ -322,7 +322,7 @@ Puedes encontrar la colección de Postman para probar los endpoints del sistema 
 
 ---
 
-# 🔁 12. Flujo Kafka Completo (end‑to‑end)
+## 🔁 Flujo Kafka Completo (end‑to‑end)
 
 1. Product creado → produce → `ecommerce.products.created`
 2. Order creada → produce → `ecommerce.orders.placed`
