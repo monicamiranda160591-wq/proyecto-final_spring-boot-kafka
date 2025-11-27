@@ -13,11 +13,11 @@
 ---
 ## 🧩 Microservicios del Proyecto
 
-| Servicio | Descripción | 
-|---------|-------------|
-| 🛒 **ecommerce-product-service** | Gestión de productos del ecommerce | 
-| 📦 **ecommerce-inventory-service** | Control de inventario y stock | 
-| 📑 **ecommerce-order-service** | Gestión de órdenes y flujo de compra | 
+| Servicio | Descripción | Repositorio                                                                         |
+|---------|-------------|-------------------------------------------------------------------------------------|
+| 🛒 **ecommerce-product-service** | Gestión de productos del ecommerce | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-product-service) |
+| 📦 **ecommerce-inventory-service** | Control de inventario y stock | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-inventory-service) |
+| 📑 **ecommerce-order-service** | Gestión de órdenes y flujo de compra | [Ir al repositorio](https://github.com/monicamiranda160591-wq/ecommerce-order-service) |
 
 ---
 ## 🛢️ Modelo de datos del Proyecto
