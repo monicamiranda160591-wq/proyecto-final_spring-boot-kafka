@@ -100,6 +100,17 @@ flowchart LR
     D --> B
     D --> C
  ```
+---
+## 🔁 Flujo Kafka Completo (end‑to‑end)
+
+1. Product creado → produce → `ecommerce.products.created`
+2. Order creada → produce → `ecommerce.orders.placed`
+3. Inventory consume orden:
+    - si hay stock → produce → `ecommerce.orders.confirmed`
+    - si no hay → produce → `ecommerce.orders.cancelled`
+4. Order Service actualiza estado final
+
+---
 ## 🛠 Herramientas Previamente Requeridas
 
 Inicialmente asegurarse de contar con las siguientes herramientas:
@@ -322,14 +333,5 @@ Puedes encontrar la colección de Postman para probar los endpoints del sistema 
 
 ---
 
-## 🔁 Flujo Kafka Completo (end‑to‑end)
 
-1. Product creado → produce → `ecommerce.products.created`
-2. Order creada → produce → `ecommerce.orders.placed`
-3. Inventory consume orden:
-    - si hay stock → produce → `ecommerce.orders.confirmed`
-    - si no hay → produce → `ecommerce.orders.cancelled`
-4. Order Service actualiza estado final
-
----
 
